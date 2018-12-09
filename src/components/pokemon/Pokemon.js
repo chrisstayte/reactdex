@@ -25,6 +25,12 @@ export default class Pokemon extends Component {
     this.setState({ imageUrl, pokemonIndex, name, types });
   }
 
+  getTypeColor(type) {
+      switch(type){
+          case ""
+      }
+  }
+
   render() {
     return (
       <div className="col">
