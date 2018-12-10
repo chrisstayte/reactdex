@@ -165,8 +165,10 @@ export default class Pokemon extends Component {
                     .join(' ')}
                 </h4>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>HP</div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                    HP
+                  </div>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
@@ -185,10 +187,10 @@ export default class Pokemon extends Component {
                   </div>
                 </div>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     Attack
                   </div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
@@ -207,10 +209,10 @@ export default class Pokemon extends Component {
                   </div>
                 </div>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     Defense
                   </div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
@@ -229,10 +231,10 @@ export default class Pokemon extends Component {
                   </div>
                 </div>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     Speed
                   </div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
@@ -251,10 +253,10 @@ export default class Pokemon extends Component {
                   </div>
                 </div>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     Sp Atk
                   </div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
@@ -273,10 +275,10 @@ export default class Pokemon extends Component {
                   </div>
                 </div>
                 <div className="row align-items-center">
-                  <div className={`col-${this.state.statTitleWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     Sp Def
                   </div>
-                  <div className={`col-${this.state.statBarWidth}`}>
+                  <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
                         className="progress-bar"
