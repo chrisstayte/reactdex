@@ -39,6 +39,13 @@ export default class Pokemon extends Component {
       specialAttack: '',
       specialDefense: ''
     },
+    height: '',
+    weight: '',
+    eggGroups: '',
+    catchRate: '',
+    abilities: '',
+    genderRatio: '',
+    evs: '',
     themeColor: '#EF5350'
   };
 
@@ -150,13 +157,13 @@ export default class Pokemon extends Component {
           </div>
           <div className="card-body">
             <div className="row align-items-center">
-              <div className="col-5 col-md-3 ">
+              <div className=" col-md-3 ">
                 <img
                   src={this.state.imageUrl}
                   className="card-img-top rounded mx-auto mt-2"
                 />
               </div>
-              <div className="col-7 col-md-9">
+              <div className="col-md-9">
                 <h4 className="mx-auto">
                   {this.state.name
                     .toLowerCase()
@@ -171,7 +178,7 @@ export default class Pokemon extends Component {
                   <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
-                        className="progress-bar"
+                        className="progress-bar "
                         role="progressbar"
                         style={{
                           width: `${this.state.stats.hp}%`,
@@ -215,7 +222,7 @@ export default class Pokemon extends Component {
                   <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
-                        className="progress-bar"
+                        className="progress-bar "
                         role="progressbar"
                         style={{
                           width: `${this.state.stats.defense}%`,
@@ -259,7 +266,7 @@ export default class Pokemon extends Component {
                   <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
-                        className="progress-bar"
+                        className="progress-bar "
                         role="progressbar"
                         style={{
                           width: `${this.state.stats.specialAttack}%`,
@@ -281,7 +288,7 @@ export default class Pokemon extends Component {
                   <div className={`col-12 col-md-${this.state.statBarWidth}`}>
                     <div className="progress">
                       <div
-                        className="progress-bar"
+                        className="progress-bar "
                         role="progressbar"
                         style={{
                           width: `${this.state.stats.specialDefense}%`,
@@ -305,6 +312,73 @@ export default class Pokemon extends Component {
             </div>
           </div>
           <hr />
+          <div className="card-body">
+            <h5 class="card-title text-center">Profile</h5>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="row">
+                  <div className="col-6">
+                    <h6 className="float-right">Height:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">0.7 m</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">Weight:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">6.9 kg</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">Catch Rate:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">0.7 m</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">Gender Ratio:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">6.9 kg</h6>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="row">
+                  <div className="col-6">
+                    <h6 className="float-right">Egg Groups:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">0.7 m</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">Hatch Steps:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">6.9 kg</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">Abilities:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">0.7 m</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-right">EVs:</h6>
+                  </div>
+                  <div className="col-6">
+                    <h6 className="float-left">6.9 kg</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            Data From{' '}
+            <a href="https://pokeapi.co/" target="_blank" className="card-link">
+              PokeAPI.co
+            </a>
+          </div>
         </div>
       </div>
     );
