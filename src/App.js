@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
+import backgroundImage from './pattern.png';
+
 import NavBar from './components/layout/NavBar';
 import Dashboard from './components/layout/Dashboard';
 import SearchBar from './components/search/SearchBar';
@@ -14,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" style={{ background: `url(${backgroundImage})` }}>
           <NavBar />
           <div className="container">
             <Switch>
