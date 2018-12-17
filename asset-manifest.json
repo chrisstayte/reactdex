@@ -1,7 +1,7 @@
 {
   "main.css": "/ReactDex/static/css/main.3965dd95.chunk.css",
-  "main.js": "/ReactDex/static/js/main.8095121f.chunk.js",
-  "main.js.map": "/ReactDex/static/js/main.8095121f.chunk.js.map",
+  "main.js": "/ReactDex/static/js/main.a1a80ff9.chunk.js",
+  "main.js.map": "/ReactDex/static/js/main.a1a80ff9.chunk.js.map",
   "static/css/1.edacc240.chunk.css": "/ReactDex/static/css/1.edacc240.chunk.css",
   "static/js/1.cc789908.chunk.js": "/ReactDex/static/js/1.cc789908.chunk.js",
   "static/js/1.cc789908.chunk.js.map": "/ReactDex/static/js/1.cc789908.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.edacc240.chunk.css.map": "/ReactDex/static/css/1.edacc240.chunk.css.map",
   "static/css/main.3965dd95.chunk.css.map": "/ReactDex/static/css/main.3965dd95.chunk.css.map",
   "index.html": "/ReactDex/index.html",
-  "precache-manifest.eb49aa2c946d359a571fb19c5683b15d.js": "/ReactDex/precache-manifest.eb49aa2c946d359a571fb19c5683b15d.js",
+  "precache-manifest.a0a9b663cd0462955f8e9d955a5082f2.js": "/ReactDex/precache-manifest.a0a9b663cd0462955f8e9d955a5082f2.js",
   "service-worker.js": "/ReactDex/service-worker.js"
 }
