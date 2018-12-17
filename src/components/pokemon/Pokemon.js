@@ -106,7 +106,7 @@ export default class Pokemon extends Component {
       .map(ability => {
         return ability.ability.name
           .toLowerCase()
-          .split(' ')
+          .split('-')
           .map(s => s.charAt(0).toUpperCase() + s.substring(1))
           .join(' ');
       })
