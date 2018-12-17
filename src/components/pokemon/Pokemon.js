@@ -44,8 +44,10 @@ export default class Pokemon extends Component {
     eggGroups: '',
     catchRate: '',
     abilities: '',
-    genderRatio: '',
+    genderRatioMale: '',
+    genderRatioFemale: '',
     evs: '',
+    hatchSteps: '',
     themeColor: '#EF5350'
   };
 
@@ -89,22 +91,78 @@ export default class Pokemon extends Component {
       }
     });
 
+    // Convert Decimeters to Feet... The + 0.0001 * 100 ) / 100 is for rounding to two decimal places :)
+    const height =
+      Math.round((pokemonRes.data.height * 0.328084 + 0.00001) * 100) / 100;
+
+    const weight =
+      Math.round((pokemonRes.data.weight * 0.220462 + 0.00001) * 100) / 100;
+
     const types = pokemonRes.data.types.map(type => type.type.name);
 
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
+
+    const abilities = pokemonRes.data.abilities
+      .map(ability => {
+        return ability.ability.name
+          .toLowerCase()
+          .split(' ')
+          .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(' ');
+      })
+      .join(', ');
+
+    const evs = pokemonRes.data.stats
+      .filter(stat => {
+        if (stat.effort > 0) {
+          return true;
+        }
+        return false;
+      })
+      .map(stat => {
+        return `${stat.effort} ${stat.stat.name
+          .toLowerCase()
+          .split('-')
+          .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(' ')}`;
+      })
+      .join(', ');
 
     // Get Pokemon Description .... Is from a different end point uggh
     await Axios.get(pokemonSpeciesUrl).then(res => {
       let description = '';
       res.data.flavor_text_entries.some(flavor => {
-        console.log(flavor);
         if (flavor.language.name === 'en') {
           description = flavor.flavor_text;
           return;
         }
       });
-      console.log(description);
-      this.setState({ description });
+      const femaleRate = res.data['gender_rate'];
+      const genderRatioFemale = 12.5 * femaleRate;
+      const genderRatioMale = 12.5 * (8 - femaleRate);
+
+      const catchRate = Math.round((100 / 255) * res.data['capture_rate']);
+
+      const eggGroups = res.data['egg_groups']
+        .map(group => {
+          return group.name
+            .toLowerCase()
+            .split(' ')
+            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(' ');
+        })
+        .join(', ');
+
+      const hatchSteps = 255 * (res.data['hatch_counter'] + 1);
+
+      this.setState({
+        description,
+        genderRatioFemale,
+        genderRatioMale,
+        catchRate,
+        eggGroups,
+        hatchSteps
+      });
     });
 
     this.setState({
@@ -120,7 +178,11 @@ export default class Pokemon extends Component {
         specialAttack,
         specialDefense
       },
-      themeColor
+      themeColor,
+      height,
+      weight,
+      abilities,
+      evs
     });
   }
 
@@ -321,25 +383,52 @@ export default class Pokemon extends Component {
                     <h6 className="float-right">Height:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">0.7 m</h6>
+                    <h6 className="float-left">{this.state.height} ft.</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Weight:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">6.9 kg</h6>
+                    <h6 className="float-left">{this.state.weight} lbs</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Catch Rate:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">0.7 m</h6>
+                    <h6 className="float-left">{this.state.catchRate}%</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Gender Ratio:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">6.9 kg</h6>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{
+                          width: `${this.state.genderRatioFemale}%`,
+                          backgroundColor: '#c2185b'
+                        }}
+                        aria-valuenow="15"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        <small>{this.state.genderRatioFemale}</small>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{
+                          width: `${this.state.genderRatioMale}%`,
+                          backgroundColor: '#1976d2'
+                        }}
+                        aria-valuenow="30"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        <small>{this.state.genderRatioMale}</small>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -349,25 +438,25 @@ export default class Pokemon extends Component {
                     <h6 className="float-right">Egg Groups:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">0.7 m</h6>
+                    <h6 className="float-left">{this.state.eggGroups} </h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Hatch Steps:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">6.9 kg</h6>
+                    <h6 className="float-left">{this.state.hatchSteps}</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Abilities:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">0.7 m</h6>
+                    <h6 className="float-left">{this.state.abilities}</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">EVs:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">6.9 kg</h6>
+                    <h6 className="float-left">{this.state.evs}</h6>
                   </div>
                 </div>
               </div>
