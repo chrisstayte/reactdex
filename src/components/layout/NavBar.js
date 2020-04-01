@@ -16,8 +16,6 @@ const Logo = styled.img`
   margin-right: 0.5em;
 `;
 
-const NavBarStyle = styled.nav``;
-
 export default class NavBar extends Component {
   state = {
     hoverNavBar: false
@@ -41,7 +39,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <NavBarStyle
+      <nav
         className="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
         style={
           this.state.hoverNavBar
@@ -61,7 +59,7 @@ export default class NavBar extends Component {
           <Logo src="./logo.svg" />
           RéactDex
         </Branding>
-      </NavBarStyle>
+      </nav>
     );
   }
 }
