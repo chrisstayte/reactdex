@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://ChrisStayte.github.io/ReactDex",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.3",
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
